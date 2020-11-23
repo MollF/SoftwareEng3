@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package College;
 
-import College.Student;
+import java.util.ArrayList;
+import org.joda.time.DateTime;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import org.joda.time.DateTime;
 
 /**
  *
@@ -37,10 +38,7 @@ public class StudentTest {
     @AfterEach
     public void tearDown() {
     }
-    
-    /**
-     * Test of findAge method, of class Student.
-     */
+
     @Test
     public void testFindAge() {
         System.out.println("findAge");
@@ -57,15 +55,44 @@ public class StudentTest {
     @Test
     public void testCreateUsername() {
         System.out.println("createUsername");
-        //String name = "";
-       // int age = 0;
         Student instance = new Student("John Doe", new DateTime(1998,07,02,00,30), 12345678);
         String expResult = "John_Doe22";
         
         String result = instance.createUsername();
         assertEquals(expResult, result);
+        
+    }
+    
+        /**
+     * Test of createUsername method, of class Student.
+     */
+    @Test
+    public void testAddModule() {
+        System.out.println("AddModule");
+        Module m = new Module("Digital Signal Processing","EE445");
+        Student s = new Student("John Doe", new DateTime(1998,07,02,00,30), 12345678);
+        
+        s.addModule(m);
+        ArrayList<Module> moduleList = s.getModules();
+        assert(moduleList.contains(m));
+        
+    }
+    
+        /**
+     * Test of createUsername method, of class Student.
+     */
+    @Test
+    public void testRemoveModule() {
+        System.out.println("RemoveModule");
+        Module m = new Module("Digital Signal Processing","EE445");
+        Student s = new Student("John Doe", new DateTime(1998,07,02,00,30), 12345678);
+        
+        s.addModule(m);
+        s.removeModule(m);
+        ArrayList<Module> moduleList = s.getModules();
+        assert(!moduleList.contains(m)); 
 
     }
 
-
+    
 }

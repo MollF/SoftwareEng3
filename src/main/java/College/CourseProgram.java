@@ -4,32 +4,57 @@ package College;
  *
  * @author Mollie Fairclough 1730941
  */
-import org.joda.time.DateTime;
-import org.joda.time.LocalDateTime;
-import org.joda.time.Years;
+import java.util.ArrayList;
+import org.joda.time.*;
 
 
 public class CourseProgram {
     
     String courseName;
-    String modules[];
-    String enrolledStudents[];
+    ArrayList<Student> enrolledStudents = new ArrayList<>(); // ArrayList of students in course
+    ArrayList<Module> courseModules = new ArrayList<>(); // ArrayList of modules in course
     DateTime startDate;
     DateTime endDate;
 
-    public CourseProgram(String courseName, String[] modules) {
+    public CourseProgram(String courseName) {
         this.courseName = courseName;
-        this.modules = modules;
     }
-
-    public String[] getEnrolledStudents() {
+    
+    
+    
+    public ArrayList<Student> getStudents() {
         return enrolledStudents;
     }
 
-    public void setEnrolledStudents(String[] enrolledStudents) {
-        this.enrolledStudents = enrolledStudents;
+    // add a module object to the ArrayList enrolledStudents
+    public void addStudent(Student student) {
+        enrolledStudents.add(student);
+    }
+    //remove a module object from the ArrayList enrolledStudents
+      public void removeStudent(Student student) {
+        enrolledStudents.remove(student);
+    }
+    
+    
+    public ArrayList<Module> getModules() {
+        return courseModules;
     }
 
+    // add a module object to the courseModules
+    public void addModule(Module module) {
+        courseModules.add(module);
+    }
+    //remove a module object from the ArrayList courseModules
+      public void removeModule(Module module) {
+        courseModules.remove(module);
+    }
+
+    
+      
+      
+      
+    
+    // getters and setters for course start and end dates
     public DateTime getStartDate() {
         return startDate;
     }
@@ -45,7 +70,5 @@ public class CourseProgram {
     public void setEndDate(DateTime endDate) {
         this.endDate = endDate;
     }
-    
-    
     
 }
