@@ -61,11 +61,9 @@ public class Student {
         modules.remove(module);
     }
 
+    @Override
+    public String toString() {
+        return "Student{" + "name = " + name + ", username = " + username + ", modules = " + modules + ", course = " + course  + '}';
+    }
 
-    
-    
-    
-    
-    
-    
 }

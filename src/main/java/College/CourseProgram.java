@@ -70,5 +70,12 @@ public class CourseProgram {
     public void setEndDate(DateTime endDate) {
         this.endDate = endDate;
     }
+
+    @Override
+    public String toString() {
+        return "CourseProgram{" + "courseName=" + courseName + ", courseModules=" + courseModules + '}';
+    }
+    
+    
     
 }
