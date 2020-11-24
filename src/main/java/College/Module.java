@@ -46,6 +46,11 @@ public class Module {
         courses.remove(course);
     }
 
+    @Override
+    public String toString() {
+        return "Module{" + "moduleName=" + moduleName + ", moduleiD=" + moduleiD + '}';
+    }
+
  
     
     
