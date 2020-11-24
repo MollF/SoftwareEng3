@@ -1,0 +1,7 @@
+language: kava
+jdk: oraclejdk8
+install: - shippable_retry mvn install
+stages: - build
+
+build:
+stage: buildscript: - mvn compile
